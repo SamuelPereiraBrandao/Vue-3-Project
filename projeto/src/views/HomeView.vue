@@ -1,19 +1,15 @@
 <template>
   <div>
-    <button @click="openModal = true">Abrir modal</button>
-    <button @click="openModal = false">Fechar modal</button>
+    <button @click="openModal = true">ABRIR NOTIFICAÇÃO</button>
 
 
-    <template v-if="openModal">
-      <Modal>
-        <template v-slot:header>
-          <h2>header modal</h2>
-        </template>
-        <template v-slot:footer>
-          <h2>footer modal</h2>
-        </template>
+    
+      <Modal v-if="openModal" @close="openModal=false">
+        
+          <h2>MENSAGEM MODAL</h2>
+      
       </Modal>
-    </template>
+   
   </div>
 </template>
 

@@ -1,85 +1,31 @@
 <template>
-  <div>
-    <button @click="openModal = true">ABRIR NOTIFICAÇÃO</button>
-
-
-    
-      <Modal v-if="openModal" @close="openModal=false">
-        <template v-for="(dados, index) in dadoscliente" :key="index">
-          <spam v-if="dados"> ID: {{dados.id}} | NOME: {{dados.nome}} | SOBRENOME: {{dados.sobrenome}} | ADM: {{dados.is_admin}}</spam>
-          <br>
-        </template>
-      
-      
-      </Modal>
-
-  </div>
+   <div>
+      <template v-for="(dados, index) in users" :key="index">
+         <li v-if="dados" style="border:1px solid black; border-radius:5px; padding:10px">
+                     <img style="border-radius:10px; width:150px" :src="`${dados.url}`" alt="">
+         </li> <br>
+      </template>
+   </div>
 </template>
-
 <script>
-// @ is an alias to /src
-
-import Modal from '@/views/Modal.vue'
-export default {
-  name: 'HomeView',
-  components: {Modal},
-  data() {
-    return {
-      openModal: false,
-      dadoscliente:[
-                {
-                   id:1,
-                nome:'Samuel',
-                sobrenome:'Pereira',
-                is_admin:0  
-                },
-                {
-                   id:2,
-                nome:'Samuel',
-                sobrenome:'Pereira',
-                is_admin:0  
-                },
-                {
-                   id:3,
-                nome:'Samuel',
-                sobrenome:'Pereira',
-                is_admin:0  
-                },
-                {
-                   id:4,
-                nome:'Samuel',
-                sobrenome:'Pereira',
-                is_admin:0  
-                },
-                {
-                   id:5,
-                nome:'Samuel',
-                sobrenome:'Pereira',
-                is_admin:0  
-                },
-                {
-                   id:6,
-                nome:'Samuel',
-                sobrenome:'Pereira',
-                is_admin:0  
-                },
-                {
-                   id:7,
-                nome:'Samuel',
-                sobrenome:'Pereira',
-                is_admin:0  
-                },
-                {
-                   id:8,
-                nome:'Samuel',
-                sobrenome:'Pereira',
-                is_admin:0  
-                },
-               
-            ]
-        
-    }
-  }
-
-}
+   
+   //import _ from 'lodash'
+   export default {
+      data () {
+         return {
+            users:[]
+         }
+      },
+      name:'HomeVue',
+      created() {
+    fetch('https://api.thecatapi.com/v1/images/search')
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        this.users = data
+      })
+  },
+      
+   }
 </script>

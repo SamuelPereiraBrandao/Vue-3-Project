@@ -10,23 +10,15 @@
   <br>
   <template v-for="(dados, inicio) in dados" :key="inicio">
     <li v-if="dados">{{dados}}</li>
-
   </template>
-
   <hr>
   <button @click="mudar = true">aparecer</button>
   <button @click="mudar = false">desaparecer</button>
-
   <template v-if="mudar">
     <Modal>
       <template #header><h2>header</h2></template>
     </Modal>
-
   </template>
-
-
-
-
 </template>
 <script>
   import Modal from '@/views/Modal.vue'

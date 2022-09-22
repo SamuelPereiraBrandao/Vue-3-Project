@@ -1,7 +1,7 @@
 <template>
     <div>
         <template v-for="(dados, ini) in users" :key="ini">
-            <li v-if="users">{{dados.nome}}{{dados.id}}{{dados.sobrenom}}{{dados.numero}}</li>
+            <li v-if="users">{{dados.nome}}{{dados.id}}{{dados.sobrenom}}{{dados.numero}} <button @click="remove(dados)">Remover</button></li>
         </template>
     </div>
 </template>
@@ -40,6 +40,15 @@ export default {
             ]
         }
 
+    },
+    methods: {
+        remove(users){
+            const index = this.users.findIndex((i) => {
+                return i.id == users.id
+            })
+            this.users.splice(index,1)
+            console.log(index)
+        }
     }
 
 }

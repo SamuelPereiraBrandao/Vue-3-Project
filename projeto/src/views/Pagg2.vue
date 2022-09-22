@@ -10,6 +10,9 @@
         <template v-for="(d, inicio) in dadosDoLogin" :key="inicio">
             <li v-if="d">{{d}}</li>
 
+        </template> <br>
+        <template v-for="(dos,inicioo) in dadosDoLogin" :key="inicioo">
+            <spam v-if="dos">{{dos}}</spam>
         </template>
     </div>
 </template>

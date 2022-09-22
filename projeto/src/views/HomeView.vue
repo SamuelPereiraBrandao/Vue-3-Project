@@ -5,11 +5,14 @@
 
     
       <Modal v-if="openModal" @close="openModal=false">
-        
-          <h2>MENSAGEM MODAL</h2>
+        <template v-for="(dados, index) in dadoscliente" :key="index">
+          <spam v-if="dados"> ID: {{dados.id}} | NOME: {{dados.nome}} | SOBRENOME: {{dados.sobrenome}} | ADM: {{dados.is_admin}}</spam>
+          <br>
+        </template>
+      
       
       </Modal>
-   
+
   </div>
 </template>
 
@@ -23,6 +26,58 @@ export default {
   data() {
     return {
       openModal: false,
+      dadoscliente:[
+                {
+                   id:1,
+                nome:'Samuel',
+                sobrenome:'Pereira',
+                is_admin:0  
+                },
+                {
+                   id:2,
+                nome:'Samuel',
+                sobrenome:'Pereira',
+                is_admin:0  
+                },
+                {
+                   id:3,
+                nome:'Samuel',
+                sobrenome:'Pereira',
+                is_admin:0  
+                },
+                {
+                   id:4,
+                nome:'Samuel',
+                sobrenome:'Pereira',
+                is_admin:0  
+                },
+                {
+                   id:5,
+                nome:'Samuel',
+                sobrenome:'Pereira',
+                is_admin:0  
+                },
+                {
+                   id:6,
+                nome:'Samuel',
+                sobrenome:'Pereira',
+                is_admin:0  
+                },
+                {
+                   id:7,
+                nome:'Samuel',
+                sobrenome:'Pereira',
+                is_admin:0  
+                },
+                {
+                   id:8,
+                nome:'Samuel',
+                sobrenome:'Pereira',
+                is_admin:0  
+                },
+               
+            ]
+        
     }
   }
 

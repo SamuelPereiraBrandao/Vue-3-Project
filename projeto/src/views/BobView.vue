@@ -1,10 +1,8 @@
 <template>
-
-    <hr>
     <div>
-        <template v-for="(dad, inicio) in users" :key="inicio">
-            <spam v-if="dad">{{dad.id}} | {{dad.nome}} | {{dad.sobrenome}} | {{dad.numero}} <button @click="removervoce(dad)">remover</button><br></spam>
-        </template>
+     <template v-for="(dados, inicio) in usuarios" :key="inicio">
+        <li v-if="dados">{{dados.id}} | {{dados.nome}} <button @click="remover(inicio)">Remover</button></li>
+     </template> <br><br>
     </div>
 </template>
   
@@ -12,9 +10,9 @@
 
 export default {
     name: 'BobVue',
-    data() {
-        return {
-            users: [
+    data () {
+        return{
+            usuarios: [
                 {
                     id: 1,
                     nome: 'Samuel',
@@ -41,22 +39,13 @@ export default {
                 },
             ]
         }
-
     },
-    methods: {
-        remove(users){
-            const index = this.users.findIndex((i) => {
-                return i.id == users.id
-            })
-            this.users.splice(index,1)
-            console.log(index)
+    methods:{
+        remover(inicio){
+            this.usuarios.splice(inicio,1)
         },
-        removervoce(users){
-           const index = this.users.findIndex((i) => {
-            return i.id == users.id
-           })
-           this.users.splice(index, 1)
-        }
+
+        
     }
 
 }

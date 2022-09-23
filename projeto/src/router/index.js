@@ -5,13 +5,18 @@ import Teste1 from '@/views/Teste1.vue'
 import Teste2 from '@/views/Teste2.vue'
 import Pagg from '@/views/Pagg.vue'
 import Pagg2 from '@/views/Pagg2.vue'
+import Pagg3 from '@/views/Pagg3.vue'
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
   },
-
+  {
+    path: '/pagg3',
+    name: 'pagg3',
+    component: Pagg3
+  },
   {
     path: '/pagg2',
     name: 'pagg2',

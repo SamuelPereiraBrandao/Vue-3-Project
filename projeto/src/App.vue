@@ -5,7 +5,7 @@
     <router-link to="/bob">Bob</router-link> |
     <router-link to="/pagg"> Pagg</router-link> |
     <router-link to="/pagg2"> Pagg2</router-link> |
-    <router-link to="/social"></router-link>
+    <router-link to="/pagg3">Pagina 3</router-link>
   </nav>
   <router-view />
 </template>

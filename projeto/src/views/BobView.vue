@@ -3,6 +3,13 @@
      <template v-for="(dados, inicio) in usuarios" :key="inicio">
         <li v-if="dados">{{dados.id}} | {{dados.nome}} <button @click="remover(inicio)">Remover</button></li>
      </template> <br><br>
+     <button @click="addItem">add </button>
+    </div>
+    <br>
+    <div>
+        <input type="text" v-model="texto">
+        <br>
+        {{texto}}
     </div>
 </template>
   
@@ -12,6 +19,7 @@ export default {
     name: 'BobVue',
     data () {
         return{
+            texto:'',
             usuarios: [
                 {
                     id: 1,
@@ -44,8 +52,18 @@ export default {
         remover(inicio){
             this.usuarios.splice(inicio,1)
         },
+        addItem(){
+            this.usuarios.push(this.usuarios.nome = 'samu')
+            console.log(this.usuarios)
+        }
 
         
+    },
+    watch:{
+        texto(Novovalor, Valorantigo){
+            console.log('Novo:' +Novovalor)
+            console.log('Antigo:' +Valorantigo)
+        }
     }
 
 }
